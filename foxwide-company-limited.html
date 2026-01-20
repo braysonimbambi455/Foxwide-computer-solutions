@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Foxwide Company limited</title>
+  <style>
+    /* Import Inter font */
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+    /* Reset & base */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+    html {
+      font-size: 16px;
+      scroll-behavior: smooth;
+    }
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background-color: #ffffff;
+      color: #6b7280;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+    a:focus, button:focus {
+      outline: 2px solid #2563eb;
+      outline-offset: 2px;
+    }
+
+    /* Container */
+    .container {
+      max-width: 1200px;
+      padding-left: 1rem;
+      padding-right: 1rem;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Header */
+    header {
+      position: sticky;
+      top: 0;
+      background: #fff;
+      border-bottom: 1px solid #e5e7eb;
+      z-index: 100;
+      box-shadow: 0 2px 4px rgb(0 0 0 / 0.05);
+      transition: background-color 0.3s ease;
+    }
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 60px;
+    }
+    .logo {
+       width: 40px;
+      height: auto;
+    }
+    nav {
+      display: flex;
+      gap: 2rem;
+    }
+    nav a {
+      font-weight: 600;
+      color: #374151;
+      padding: 0.25rem 0;
+      font-size: 1rem;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      height: 2px;
+      width: 0;
+      background: #2563eb;
+      border-radius: 2px;
+      transition: width 0.3s ease;
+    }
+    nav a:hover,
+    nav a:focus-visible {
+      color: #2563eb;
+    }
+    nav a:hover::after,
+    nav a:focus-visible::after {
+      width: 100%;
+    }
+
+    /* Hero section */
+    .hero {
+      padding-top: 6rem;
+      padding-bottom: 5rem;
+      text-align: center;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+    }
+    .hero h1 {
+      font-weight: 800;
+      font-size: 3.5rem;
+      line-height: 1.1;
+      color: #111827;
+      max-width: 700px;
+      margin: 0;
+    }
+    .hero p {
+      font-size: 1.25rem;
+      color: #4b5563;
+      max-width: 500px;
+      margin: 0;
+    }
+    .btn-primary {
+      background-color: #2563eb;
+      color: #fff;
+      font-weight: 700;
+      font-size: 1.125rem;
+      padding: 0.75rem 2.5rem;
+      border: none;
+      border-radius: 0.75rem;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgb(37 99 235 / 0.3);
+      transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+      user-select: none;
+    }
+    .btn-primary:hover,
+    .btn-primary:focus-visible {
+      background-color: #1e40af;
+      box-shadow: 0 6px 12px rgb(30 64 175 / 0.5);
+      transform: translateY(-2px);
+    }
+    .hero-image {
+      max-width: 480px;
+      width: 100%;
+      border-radius: 1rem;
+      box-shadow: 0 8px 20px rgb(0 0 0 / 0.1);
+      object-fit: cover;
+      aspect-ratio: 16/9;
+      user-select: none;
+    }
+
+    /* Services Section */
+    .services {
+      padding-top: 4rem;
+      padding-bottom: 6rem;
+    }
+    .services h2 {
+      font-weight: 700;
+      font-size: 2.5rem;
+      color: #111827;
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2.5rem;
+    }
+    .service-card {
+      background-color: #f9fafb;
+      border-radius: 0.75rem;
+      box-shadow: 0 1px 3px rgb(0 0 0 / 0.1);
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+      user-select: none;
+    }
+    .service-card:hover,
+    .service-card:focus-within {
+      box-shadow: 0 8px 20px rgb(37 99 235 / 0.3);
+      transform: translateY(-5px);
+      outline: none;
+    }
+    .service-image {
+      width: 100%;
+      max-height: 180px;
+      border-radius: 1rem;
+      object-fit: cover;
+      margin-bottom: 1rem;
+      box-shadow: 0 5px 12px rgb(0 0 0 / 0.08);
+    }
+    .service-icon {
+      width: 48px;
+      height: 48px;
+      stroke: #2563eb;
+      margin-bottom: 1rem;
+      flex-shrink: 0;
+      user-select: none;
+    }
+    .service-title {
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: #111827;
+      margin-bottom: 0.75rem;
+    }
+    .service-desc {
+      font-size: 1rem;
+      color: #4b5563;
+      line-height: 1.5;
+      user-select: text;
+    }
+
+    /* About Section */
+    .about {
+      background-color: #f3f4f6;
+      padding-top: 5rem;
+      padding-bottom: 6rem;
+      text-align: center;
+      border-radius: 0.75rem;
+      margin: 0 1rem;
+    }
+    .about .container {
+      max-width: 800px;
+    }
+    .about h2 {
+      font-weight: 700;
+      font-size: 2.5rem;
+      color: #111827;
+      margin-bottom: 1.5rem;
+      user-select: none;
+    }
+    .about p {
+      font-size: 1.125rem;
+      color: #4b5563;
+      line-height: 1.6;
+      user-select: text;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #111827;
+      color: #9ca3af;
+      padding: 2rem 1rem;
+      text-align: center;
+      font-size: 0.875rem;
+      user-select: none;
+    }
+    footer a {
+      color: #2563eb;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+    footer a:hover,
+    footer a:focus-visible {
+      color: #1e40af;
+      outline: none;
+    }
+
+    /* Responsive typography and layout */
+    @media (max-width: 640px) {
+      .hero {
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+      }
+      .hero h1 {
+        font-size: 2.25rem;
+      }
+      nav {
+        gap: 1.2rem;
+      }
+      .btn-primary {
+        padding-left: 2rem;
+        padding-right: 2rem;
+        font-size: 1rem;
+      }
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header aria-label="Main navigation">
+    <div class="container header-inner">
+      <a href="#" class="logo" aria-label="Foxwide Company limited homepage">
+        <img src="foxwide-logo.jpg" alt="Logo" class="logo">
+        Foxwide
+      </a>
+      <nav role="navigation" aria-label="Primary navigation">
+        <a href="#services" tabindex="0">Services</a>
+        <a href="#about" tabindex="0">About</a>
+        <a href="#contact" tabindex="0">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <h1 id="hero-title">Comprehensive Computer & IT Solutions</h1>
+      <p>Your trusted partner for computer repair, sales, web development, security, and networking services.</p>
+      <img src="technician repairing a computer.png" alt="Technician repairing a computer in a modern office environment, using tools and focused on diagnostics" class="hero-image" onerror="this.style.display='none'" />
+      <button class="btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})" aria-label="Contact Foxwide Computer Solutions">Contact Us</button>
+    </section>
+
+    <section id="services" class="services" aria-labelledby="services-title">
+      <h2 id="services-title">Our Services</h2>
+      <div class="services-grid">
+        <article class="service-card" tabindex="0" aria-label="Computer Repair and Maintenance service">
+          <img src="computer repair and maintenance.png" alt="Person repairing a computer hardware component, carefully handling internal parts" class="service-image" onerror="this.style.display='none'" />
+          <h3 class="service-title">Computer Repair &amp; Maintenance</h3>
+          <p class="service-desc">Expert diagnostics, repairs, and preventive maintenance to keep your computer running smoothly.</p>
+        </article>
+
+        <article class="service-card" tabindex="0" aria-label="Computer Sales service">
+          <img src="computer sales.png" alt="Customer browsing in a modern computer retail store with various laptops and desktops displayed on shelves" class="service-image" onerror="this.style.display='none'" />
+          <h3 class="service-title">Computer Sales</h3>
+          <p class="service-desc">Wide selection of quality new and refurbished computers tailored to your needs.</p>
+        </article>
+
+        <article class="service-card" tabindex="0" aria-label="Web Development service">
+          <img src="web development.png" alt="Web developer coding a website on multiple monitors in a professional workspace" class="service-image" onerror="this.style.display='none'" />
+          <h3 class="service-title">Web Development</h3>
+          <p class="service-desc">Custom websites and applications crafted for performance, responsiveness, and scalability.</p>
+        </article>
+
+        <article class="service-card" tabindex="0" aria-label="Web Design service">
+          <img src="web design.png" alt="Graphic designer working on user interface mockups displayed on a large screen" class="service-image" onerror="this.style.display='none'" />
+          <h3 class="service-title">Web Design</h3>
+          <p class="service-desc">Modern, clean, and user-friendly designs that showcase your brand and engage visitors.</p>
+        </article>
+
+        <article class="service-card" tabindex="0" aria-label="CCTV Installation service">
+          <img src="cctv installation.png" alt="Technician installing CCTV cameras on a building exterior, using ladder and tools" class="service-image" onerror="this.style.display='none'" />
+          <h3 class="service-title">CCTV Installation</h3>
+          <p class="service-desc">Professional surveillance setup for premises security and peace of mind.</p>
+        </article>
+
+        <article class="service-card" tabindex="0" aria-label="WiFi Installation service">
+          <img src="wifi installation.png" alt="Technician configuring wireless networking equipment and routers during WiFi installation" class="service-image" onerror="this.style.display='none'" />
+          <h3 class="service-title">WiFi Installation</h3>
+          <p class="service-desc">Reliable and secure wireless networking solutions for your home or office.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="about" class="about" aria-labelledby="about-title">
+      <div class="container">
+        <h2 id="about-title">About Foxwide</h2>
+        <p>
+          Foxwide Company limited is dedicated to providing top-tier computer and IT services tailored to your needs.
+          Our expert team delivers reliable repairs, custom-built computers, immersive web experiences, and trusted security systems, ensuring your technology empowers your success.
+          We believe in quality, transparency and exceptional customer care.
+        </p>
+      </div>
+    </section>
+   <section id="contact" class="about" aria-labelledby="contact-title" style="margin-bottom: 3rem;">
+  <div class="container" style="max-width: 600px;">
+    <h2 id="contact-title">Contact Us</h2>
+    <p style="color:#374151; font-size:1rem; margin-bottom: 1.5rem;">
+      We're here to help! For inquiries, service requests or general support, feel free to reach out to us via phone or email. We'll respond promptly during our working hours.
+    </p>
+
+    <div style="text-align: left; background-color: #fff; padding: 1.5rem; border-radius: 0.75rem; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+      <p style="font-size: 1rem; margin-bottom: 0.5rem;">
+        <strong>Email:</strong> <a href="mailto:foxwidecompanylimited@gmail.com" style="color:#2563eb;">foxwidecompanylimited@gmail.com</a>
+      </p>
+      <p style="font-size: 1rem; margin-bottom: 0.5rem;">
+        <strong>Phone:</strong> <a href="tel:+254793814747" style="color:#2563eb;">+254 793814747</a>
+      </p>
+      <p style="font-size: 1rem; margin-bottom: 0;">
+        <strong>Working Hours:</strong><br />
+        Monday – Saturday: 8:00 AM – 6:00 PM<br />
+        Sunday & Public Holidays: Closed
+      </p>
+    </div>
+  </div>
+</section>
+
+  </main>
+  <footer role="contentinfo">
+    <div class="container">
+      &copy; 2026 Foxwide Company limited. All rights reserved.
+    </div>
+  </footer>
+</body>
+</html>
+
