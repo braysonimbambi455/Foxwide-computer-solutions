@@ -2,124 +2,173 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Foxwide Company limited</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Foxwide Company Limited | IT Solutions & Portfolio</title>
+  <!-- Google Fonts + Font Awesome for icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
-    /* Import Inter font */
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
-
-    /* Reset & base */
-    *, *::before, *::after {
+    * {
+      margin: 0;
+      padding: 0;
       box-sizing: border-box;
     }
-    html {
-      font-size: 16px;
-      scroll-behavior: smooth;
-    }
+
     body {
-      margin: 0;
       font-family: 'Inter', sans-serif;
       background-color: #ffffff;
-      color: #6b7280;
+      color: #1f2937;
       line-height: 1.5;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
+      scroll-behavior: smooth;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-    a:focus, button:focus {
-      outline: 2px solid #2563eb;
-      outline-offset: 2px;
-    }
-
-    /* Container */
     .container {
-      max-width: 1200px;
-      padding-left: 1rem;
-      padding-right: 1rem;
-      margin-left: auto;
-      margin-right: auto;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
     }
 
-    /* Header */
-    header {
+    /* header & navigation */
+    .site-header {
       position: sticky;
       top: 0;
-      background: #fff;
-      border-bottom: 1px solid #e5e7eb;
-      z-index: 100;
-      box-shadow: 0 2px 4px rgb(0 0 0 / 0.05);
-      transition: background-color 0.3s ease;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(4px);
+      border-bottom: 1px solid #eef2ff;
+      z-index: 1000;
+      transition: all 0.2s ease;
     }
-    .header-inner {
+
+    .header-flex {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      height: 60px;
-    }
-    .logo {
-       width: 40px;
-      height: auto;
-    }
-    nav {
-      display: flex;
-      gap: 2rem;
-    }
-    nav a {
-      font-weight: 600;
-      color: #374151;
-      padding: 0.25rem 0;
-      font-size: 1rem;
-      position: relative;
-      transition: color 0.3s ease;
-    }
-    nav a::after {
-      content: '';
-      position: absolute;
-      bottom: -4px;
-      left: 0;
-      height: 2px;
-      width: 0;
-      background: #2563eb;
-      border-radius: 2px;
-      transition: width 0.3s ease;
-    }
-    nav a:hover,
-    nav a:focus-visible {
-      color: #2563eb;
-    }
-    nav a:hover::after,
-    nav a:focus-visible::after {
-      width: 100%;
+      height: 72px;
     }
 
-    /* Hero section */
-    .hero {
-      padding-top: 6rem;
-      padding-bottom: 5rem;
-      text-align: center;
-      position: relative;
+    .logo-area {
       display: flex;
-      flex-direction: column;
       align-items: center;
-      gap: 2rem;
+      gap: 10px;
     }
-    .hero h1 {
+
+    .logo-img {
+      width: 40px;
+      height: 40px;
+      object-fit: contain;
+      border-radius: 8px;
+    }
+
+    .logo-text {
       font-weight: 800;
-      font-size: 3.5rem;
-      line-height: 1.1;
-      color: #111827;
-      max-width: 700px;
-      margin: 0;
+      font-size: 1.6rem;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #1e3a8a, #2563eb);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
     }
-    .hero p {
-      font-size: 1.25rem;
-      color: #4b5563;
-      max-width: 500px;
-      margin: 0;
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .nav-links a {
+      font-weight: 600;
+      color: #1e293b;
+      transition: color 0.2s;
+      text-decoration: none;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a:hover, .nav-links a.active {
+      color: #2563eb;
+    }
+
+    /* floating whatsapp button */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      background-color: #25D366;
+      color: white;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+      z-index: 1100;
+      transition: transform 0.2s, background 0.2s;
+      cursor: pointer;
+      border: none;
+      text-decoration: none;
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.08);
+      background-color: #20b859;
+    }
+
+    /* hero */
+    .hero {
+      padding: 4rem 0 3rem;
+      background: linear-gradient(145deg, #fafcff 0%, #ffffff 100%);
+    }
+    .hero-grid {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 2.5rem;
+    }
+    .hero-content {
+      flex: 1.2;
+    }
+    .hero-content h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      line-height: 1.2;
+      color: #0f172a;
+      margin-bottom: 1rem;
+    }
+    .hero-highlight {
+      color: #2563eb;
+      border-bottom: 3px solid #93c5fd;
+    }
+    .hero-content p {
+      font-size: 1.2rem;
+      color: #475569;
+      margin: 1.2rem 0 1.8rem;
+      max-width: 550px;
+    }
+    .hero-stats {
+      display: flex;
+      gap: 2rem;
+      margin: 1.5rem 0;
+    }
+    .stat-item {
+      text-align: left;
+    }
+    .stat-number {
+      font-weight: 800;
+      font-size: 1.8rem;
+      color: #2563eb;
+    }
+    .hero-image {
+      flex: 0.9;
+      border-radius: 2rem;
+      overflow: hidden;
+      box-shadow: 0 20px 35px -12px rgba(0,0,0,0.1);
+    }
+    .hero-image img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+      height: auto;
     }
     .btn-primary {
       background-color: #2563eb;
@@ -132,260 +181,522 @@
       cursor: pointer;
       box-shadow: 0 4px 8px rgb(37 99 235 / 0.3);
       transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
-      user-select: none;
     }
-    .btn-primary:hover,
-    .btn-primary:focus-visible {
+    .btn-primary:hover {
       background-color: #1e40af;
-      box-shadow: 0 6px 12px rgb(30 64 175 / 0.5);
       transform: translateY(-2px);
     }
-    .hero-image {
-      max-width: 480px;
-      width: 100%;
-      border-radius: 1rem;
-      box-shadow: 0 8px 20px rgb(0 0 0 / 0.1);
-      object-fit: cover;
-      aspect-ratio: 16/9;
-      user-select: none;
-    }
 
-    /* Services Section */
-    .services {
-      padding-top: 4rem;
-      padding-bottom: 6rem;
-    }
-    .services h2 {
+    /* services section */
+    .section-title {
+      font-size: 2.2rem;
       font-weight: 700;
-      font-size: 2.5rem;
-      color: #111827;
       text-align: center;
-      margin-bottom: 3rem;
+      margin-bottom: 2.5rem;
+      color: #0f172a;
     }
     .services-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 2.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0;
     }
     .service-card {
-      background-color: #f9fafb;
-      border-radius: 0.75rem;
-      box-shadow: 0 1px 3px rgb(0 0 0 / 0.1);
+      background: #f8fafc;
+      border-radius: 1.5rem;
       padding: 1.5rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
       text-align: center;
-      transition: box-shadow 0.3s ease, transform 0.3s ease;
-      user-select: none;
+      transition: all 0.25s ease;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+      border: 1px solid #eef2ff;
     }
-    .service-card:hover,
-    .service-card:focus-within {
-      box-shadow: 0 8px 20px rgb(37 99 235 / 0.3);
-      transform: translateY(-5px);
-      outline: none;
+    .service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 25px -12px rgba(37,99,235,0.15);
+      border-color: #bfdbfe;
     }
     .service-image {
       width: 100%;
-      max-height: 180px;
-      border-radius: 1rem;
+      height: 160px;
       object-fit: cover;
+      border-radius: 1rem;
       margin-bottom: 1rem;
-      box-shadow: 0 5px 12px rgb(0 0 0 / 0.08);
-    }
-    .service-icon {
-      width: 48px;
-      height: 48px;
-      stroke: #2563eb;
-      margin-bottom: 1rem;
-      flex-shrink: 0;
-      user-select: none;
+      background: #e2e8f0;
     }
     .service-title {
       font-weight: 700;
-      font-size: 1.25rem;
-      color: #111827;
-      margin-bottom: 0.75rem;
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+      color: #0f172a;
     }
     .service-desc {
-      font-size: 1rem;
-      color: #4b5563;
-      line-height: 1.5;
-      user-select: text;
+      color: #475569;
+      font-size: 0.95rem;
     }
 
-    /* About Section */
-    .about {
-      background-color: #f3f4f6;
-      padding-top: 5rem;
-      padding-bottom: 6rem;
-      text-align: center;
-      border-radius: 0.75rem;
-      margin: 0 1rem;
+    /* portfolio section */
+    .portfolio {
+      background-color: #fefefe;
+      padding: 4rem 0;
     }
-    .about .container {
-      max-width: 800px;
+    .portfolio-filter {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 2.5rem;
     }
-    .about h2 {
+    .filter-btn {
+      background: none;
+      border: 1px solid #cbd5e1;
+      padding: 0.5rem 1.3rem;
+      border-radius: 40px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: all 0.2s;
+      color: #334155;
+    }
+    .filter-btn.active, .filter-btn:hover {
+      background: #2563eb;
+      border-color: #2563eb;
+      color: white;
+    }
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 2rem;
+    }
+    .portfolio-item {
+      background: white;
+      border-radius: 1.5rem;
+      overflow: hidden;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+      transition: transform 0.2s;
+      border: 1px solid #eef2ff;
+    }
+    .portfolio-item:hover {
+      transform: translateY(-5px);
+    }
+    .portfolio-img {
+      width: 100%;
+      height: 200px;
+      background-color: #eef2ff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .portfolio-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .portfolio-info {
+      padding: 1.2rem;
+    }
+    .portfolio-info h3 {
       font-weight: 700;
-      font-size: 2.5rem;
-      color: #111827;
-      margin-bottom: 1.5rem;
-      user-select: none;
+      margin-bottom: 0.4rem;
     }
-    .about p {
-      font-size: 1.125rem;
-      color: #4b5563;
-      line-height: 1.6;
-      user-select: text;
+    .portfolio-cat {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #2563eb;
+      font-weight: 600;
     }
 
-    /* Footer */
-    footer {
-      background-color: #111827;
-      color: #9ca3af;
-      padding: 2rem 1rem;
-      text-align: center;
-      font-size: 0.875rem;
-      user-select: none;
+    /* about section */
+    .about {
+      padding: 4rem 0;
+      background: #f1f5f9;
     }
-    footer a {
-      color: #2563eb;
-      text-decoration: underline;
+    .about-inner {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3rem;
+      align-items: center;
+    }
+    .about-text {
+      flex: 1.2;
+    }
+    .about-text h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    .about-text p {
+      margin-bottom: 1rem;
+      color: #334155;
+    }
+    .about-badge {
+      background: white;
+      border-radius: 50px;
+      padding: 0.5rem 1.2rem;
+      font-weight: 500;
+      display: inline-block;
+      margin-top: 1rem;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    }
+    .about-image {
+      flex: 0.9;
+      border-radius: 1.5rem;
+      overflow: hidden;
+    }
+    .about-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* contact section */
+    .contact-section {
+      padding: 4rem 0;
+      background: #ffffff;
+    }
+    .contact-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      background: #f9fafb;
+      border-radius: 2rem;
+      overflow: hidden;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.05);
+    }
+    .contact-info {
+      flex: 1;
+      padding: 2rem 2rem;
+      background: #0f172a;
+      color: white;
+    }
+    .contact-info h3 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      color: white;
+    }
+    .contact-detail {
+      margin: 1.8rem 0;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .contact-detail i {
+      font-size: 1.5rem;
+      width: 2rem;
+    }
+    .whatsapp-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: #25D366;
+      padding: 0.75rem 1.6rem;
+      border-radius: 50px;
+      color: white;
+      font-weight: 700;
+      margin-top: 1rem;
+      transition: background 0.2s;
+      text-decoration: none;
+      border: none;
       cursor: pointer;
     }
-    footer a:hover,
-    footer a:focus-visible {
-      color: #1e40af;
-      outline: none;
+    .whatsapp-btn:hover {
+      background: #128C7E;
     }
-
-    /* Responsive typography and layout */
-    @media (max-width: 640px) {
-      .hero {
-        padding-top: 3rem;
-        padding-bottom: 3rem;
-      }
-      .hero h1 {
-        font-size: 2.25rem;
-      }
-      nav {
-        gap: 1.2rem;
-      }
-      .btn-primary {
-        padding-left: 2rem;
-        padding-right: 2rem;
-        font-size: 1rem;
-      }
-      .services-grid {
-        grid-template-columns: 1fr;
-      }
+    .contact-form-side {
+      flex: 1.2;
+      padding: 2rem;
+    }
+    .input-group {
+      margin-bottom: 1.2rem;
+    }
+    .input-group input, .input-group textarea {
+      width: 100%;
+      padding: 0.9rem 1rem;
+      border: 1px solid #e2e8f0;
+      border-radius: 1rem;
+      font-family: inherit;
+      transition: 0.2s;
+    }
+    .input-group input:focus, .input-group textarea:focus {
+      outline: none;
+      border-color: #2563eb;
+      box-shadow: 0 0 0 2px rgba(37,99,235,0.2);
+    }
+    .btn-submit {
+      background: #2563eb;
+      border: none;
+      padding: 0.8rem 1.8rem;
+      border-radius: 2rem;
+      font-weight: 700;
+      color: white;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .btn-submit:hover {
+      background: #1e40af;
+    }
+    footer {
+      background: #0f172a;
+      color: #94a3b8;
+      padding: 2rem 0;
+      text-align: center;
+    }
+    @media (max-width: 760px) {
+      .nav-links { gap: 1rem; }
+      .hero-content h1 { font-size: 2rem; }
+      .hero-grid { flex-direction: column; }
+      .contact-wrapper { flex-direction: column; }
     }
   </style>
 </head>
 <body>
-  <header aria-label="Main navigation">
-    <div class="container header-inner">
-      <a href="#" class="logo" aria-label="Foxwide Company limited homepage">
-        <img src="foxwide-logo.jpg" alt="Logo" class="logo">
-        Foxwide
-      </a>
-      <nav role="navigation" aria-label="Primary navigation">
-        <a href="#services" tabindex="0">Services</a>
-        <a href="#about" tabindex="0">About</a>
-        <a href="#contact" tabindex="0">Contact</a>
-      </nav>
+
+<header class="site-header">
+  <div class="container header-flex">
+    <div class="logo-area">
+      <img src="foxwide-logo.jpg" alt="Foxwide Logo" class="logo-img" onerror="this.src='https://placehold.co/40x40/2563eb/white?text=F'">
+      <span class="logo-text">Foxwide</span>
     </div>
-  </header>
-
-  <main>
-    <section class="hero" aria-labelledby="hero-title">
-      <h1 id="hero-title">Comprehensive Computer & IT Solutions</h1>
-      <p>Your trusted partner for computer repair, sales, web development, security, and networking services.</p>
-      <img src="technician repairing a computer.png" alt="Technician repairing a computer in a modern office environment, using tools and focused on diagnostics" class="hero-image" onerror="this.style.display='none'" />
-      <button class="btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})" aria-label="Contact Foxwide Computer Solutions">Contact Us</button>
-    </section>
-
-    <section id="services" class="services" aria-labelledby="services-title">
-      <h2 id="services-title">Our Services</h2>
-      <div class="services-grid">
-        <article class="service-card" tabindex="0" aria-label="Computer Repair and Maintenance service">
-          <img src="computer repair and maintenance.png" alt="Person repairing a computer hardware component, carefully handling internal parts" class="service-image" onerror="this.style.display='none'" />
-          <h3 class="service-title">Computer Repair &amp; Maintenance</h3>
-          <p class="service-desc">Expert diagnostics, repairs, and preventive maintenance to keep your computer running smoothly.</p>
-        </article>
-
-        <article class="service-card" tabindex="0" aria-label="Computer Sales service">
-          <img src="computer sales.png" alt="Customer browsing in a modern computer retail store with various laptops and desktops displayed on shelves" class="service-image" onerror="this.style.display='none'" />
-          <h3 class="service-title">Computer Sales</h3>
-          <p class="service-desc">Wide selection of quality new and refurbished computers tailored to your needs.</p>
-        </article>
-
-        <article class="service-card" tabindex="0" aria-label="Web Development service">
-          <img src="web development.png" alt="Web developer coding a website on multiple monitors in a professional workspace" class="service-image" onerror="this.style.display='none'" />
-          <h3 class="service-title">Web Development</h3>
-          <p class="service-desc">Custom websites and applications crafted for performance, responsiveness, and scalability.</p>
-        </article>
-
-        <article class="service-card" tabindex="0" aria-label="Web Design service">
-          <img src="web design.png" alt="Graphic designer working on user interface mockups displayed on a large screen" class="service-image" onerror="this.style.display='none'" />
-          <h3 class="service-title">Web Design</h3>
-          <p class="service-desc">Modern, clean, and user-friendly designs that showcase your brand and engage visitors.</p>
-        </article>
-
-        <article class="service-card" tabindex="0" aria-label="CCTV Installation service">
-          <img src="cctv installation.png" alt="Technician installing CCTV cameras on a building exterior, using ladder and tools" class="service-image" onerror="this.style.display='none'" />
-          <h3 class="service-title">CCTV Installation</h3>
-          <p class="service-desc">Professional surveillance setup for premises security and peace of mind.</p>
-        </article>
-
-        <article class="service-card" tabindex="0" aria-label="WiFi Installation service">
-          <img src="wifi installation.png" alt="Technician configuring wireless networking equipment and routers during WiFi installation" class="service-image" onerror="this.style.display='none'" />
-          <h3 class="service-title">WiFi Installation</h3>
-          <p class="service-desc">Reliable and secure wireless networking solutions for your home or office.</p>
-        </article>
-      </div>
-    </section>
-
-    <section id="about" class="about" aria-labelledby="about-title">
-      <div class="container">
-        <h2 id="about-title">About Foxwide</h2>
-        <p>
-          Foxwide Company limited is dedicated to providing top-tier computer and IT services tailored to your needs.
-          Our expert team delivers reliable repairs, custom-built computers, immersive web experiences, and trusted security systems, ensuring your technology empowers your success.
-          We believe in quality, transparency and exceptional customer care.
-        </p>
-      </div>
-    </section>
-   <section id="contact" class="about" aria-labelledby="contact-title" style="margin-bottom: 3rem;">
-  <div class="container" style="max-width: 600px;">
-    <h2 id="contact-title">Contact Us</h2>
-    <p style="color:#374151; font-size:1rem; margin-bottom: 1.5rem;">
-      We're here to help! For inquiries, service requests or general support, feel free to reach out to us via phone or email. We'll respond promptly during our working hours.
-    </p>
-
-    <div style="text-align: left; background-color: #fff; padding: 1.5rem; border-radius: 0.75rem; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
-      <p style="font-size: 1rem; margin-bottom: 0.5rem;">
-        <strong>Email:</strong> <a href="mailto:foxwidecompanylimited@gmail.com" style="color:#2563eb;">foxwidecompanylimited@gmail.com</a>
-      </p>
-      <p style="font-size: 1rem; margin-bottom: 0.5rem;">
-        <strong>Phone:</strong> <a href="tel:+254793814747" style="color:#2563eb;">+254 793814747</a>
-      </p>
-      <p style="font-size: 1rem; margin-bottom: 0;">
-        <strong>Working Hours:</strong><br />
-        Monday – Saturday: 8:00 AM – 6:00 PM<br />
-        Sunday & Public Holidays: Closed
-      </p>
-    </div>
+    <nav class="nav-links">
+      <a href="#home" class="active">Home</a>
+      <a href="#services">Services</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#about">Company</a>
+      <a href="#contact">Contact</a>
+    </nav>
   </div>
-</section>
+</header>
 
-  </main>
-  <footer role="contentinfo">
-    <div class="container">
-      &copy; 2026 Foxwide Company limited. All rights reserved.
+<main>
+  <!-- Homepage Hero -->
+  <section id="home" class="hero">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <h1>Future-ready <span class="hero-highlight">IT Solutions</span> & Digital Excellence</h1>
+        <p>Foxwide Company Limited delivers cutting-edge computer repair, web development, cybersecurity and networking — trusted by businesses across Kenya.</p>
+        <div class="hero-stats">
+          <div class="stat-item"><span class="stat-number">150+</span><br>Projects</div>
+          <div class="stat-item"><span class="stat-number">98%</span><br>Client Sat.</div>
+          <div class="stat-item"><span class="stat-number">24/7</span><br>Support</div>
+        </div>
+        <button class="btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get a free consultation →</button>
+      </div>
+      <div class="hero-image">
+        <img src="technician repairing a computer.png" alt="Technician repairing a computer" onerror="this.src='https://placehold.co/600x400/2563eb/white?text=IT+Support'">
+      </div>
     </div>
-  </footer>
+  </section>
+
+  <!-- Services Section with original images -->
+  <section id="services" class="container" style="padding: 3rem 0 5rem;">
+    <h2 class="section-title">Our Core Services</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <img src="computer repair and maintenance.png" alt="Computer Repair" class="service-image" onerror="this.src='https://placehold.co/400x200/2563eb/white?text=Repair'">
+        <div class="service-title">Computer Repair & Maintenance</div>
+        <div class="service-desc">Expert diagnostics, repairs, and preventive maintenance to keep your computer running smoothly.</div>
+      </div>
+      <div class="service-card">
+        <img src="computer sales.png" alt="Computer Sales" class="service-image" onerror="this.src='https://placehold.co/400x200/2563eb/white?text=Sales'">
+        <div class="service-title">Computer Sales</div>
+        <div class="service-desc">Wide selection of quality new and refurbished computers tailored to your needs.</div>
+      </div>
+      <div class="service-card">
+        <img src="web development.png" alt="Web Development" class="service-image" onerror="this.src='https://placehold.co/400x200/2563eb/white?text=Web+Dev'">
+        <div class="service-title">Web Development</div>
+        <div class="service-desc">Custom websites and applications crafted for performance, responsiveness, and scalability.</div>
+      </div>
+      <div class="service-card">
+        <img src="web design.png" alt="Web Design" class="service-image" onerror="this.src='https://placehold.co/400x200/2563eb/white?text=Web+Design'">
+        <div class="service-title">Web Design</div>
+        <div class="service-desc">Modern, clean, and user-friendly designs that showcase your brand and engage visitors.</div>
+      </div>
+      <div class="service-card">
+        <img src="cctv installation.png" alt="CCTV Installation" class="service-image" onerror="this.src='https://placehold.co/400x200/2563eb/white?text=CCTV'">
+        <div class="service-title">CCTV Installation</div>
+        <div class="service-desc">Professional surveillance setup for premises security and peace of mind.</div>
+      </div>
+      <div class="service-card">
+        <img src="wifi installation.png" alt="WiFi Installation" class="service-image" onerror="this.src='https://placehold.co/400x200/2563eb/white?text=WiFi'">
+        <div class="service-title">WiFi Installation</div>
+        <div class="service-desc">Reliable and secure wireless networking solutions for your home or office.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio Section with original images where possible -->
+  <section id="portfolio" class="portfolio">
+    <div class="container">
+      <h2 class="section-title">Our Recent Portfolio</h2>
+      <div class="portfolio-filter">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="web">Web & Design</button>
+        <button class="filter-btn" data-filter="security">CCTV & Security</button>
+        <button class="filter-btn" data-filter="networking">Networking</button>
+      </div>
+      <div class="portfolio-grid" id="portfolioGrid"></div>
+    </div>
+  </section>
+
+  <!-- About Section (Company info) -->
+  <section id="about" class="about">
+    <div class="container about-inner">
+      <div class="about-text">
+        <h2>About Foxwide Company Limited</h2>
+        <p>Foxwide Company limited is dedicated to providing top-tier computer and IT services tailored to your needs. Our expert team delivers reliable repairs, custom-built computers, immersive web experiences, and trusted security systems, ensuring your technology empowers your success. We believe in quality, transparency and exceptional customer care.</p>
+        <p><strong>Our portfolio includes:</strong> 150+ successful IT deployments, 80+ websites launched, 50+ security systems installed, and partnerships with leading hardware vendors. Every project is backed by our dedicated support.</p>
+        <div class="about-badge"><i class="fas fa-medal"></i> Certified Experts | 24/7 Support</div>
+      </div>
+      <div class="about-image">
+        <img src="foxwide team.jpg" alt="Foxwide Team" onerror="this.src='https://placehold.co/500x400/2563eb/white?text=Foxwide+Team'">
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact + WhatsApp Integration (simplified button text) -->
+  <section id="contact" class="contact-section">
+    <div class="container contact-wrapper">
+      <div class="contact-info">
+        <h3>Let's talk<br>tech & innovation</h3>
+        <p>Reach out for any inquiries or request a quote — we respond within hours.</p>
+        <div class="contact-detail"><i class="fas fa-phone-alt"></i> <span>+254 793 814 747</span></div>
+        <div class="contact-detail"><i class="fas fa-envelope"></i> <span>foxwidecompanylimited@gmail.com</span></div>
+        <div class="contact-detail"><i class="fas fa-clock"></i> <span>Mon-Sat: 8AM–6PM</span></div>
+        <!-- WhatsApp button - simplified text -->
+        <a href="https://wa.me/254793814747?text=Hello%20Foxwide%2C%20I%20need%20assistance%20with%20IT%20services%2Fportfolio%20inquiry" target="_blank" class="whatsapp-btn">
+          <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+        </a>
+        <p style="font-size:0.8rem; margin-top:1rem;">Official WhatsApp Business — instant replies</p>
+      </div>
+      <div class="contact-form-side">
+        <h3 style="margin-bottom:1.2rem;">Send a message</h3>
+        <form id="contactForm">
+          <div class="input-group"><input type="text" placeholder="Full name" id="nameInput" required></div>
+          <div class="input-group"><input type="email" placeholder="Email address" id="emailInput" required></div>
+          <div class="input-group"><textarea rows="3" placeholder="Tell us about your project..." id="msgInput" required></textarea></div>
+          <button type="submit" class="btn-submit">Submit inquiry <i class="fas fa-arrow-right"></i></button>
+        </form>
+        <p id="formFeedback" style="margin-top:1rem; font-size:0.85rem;"></p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <p>© 2026 Foxwide Company Limited — Innovation meets reliability. All rights reserved.</p>
+    <p style="margin-top: 8px;"><i class="fab fa-whatsapp"></i> WhatsApp Business | <i class="fas fa-shield-alt"></i> Secure & trusted</p>
+  </div>
+</footer>
+
+<!-- Floating WhatsApp Button -->
+<a href="https://wa.me/254793814747?text=Hi%20Foxwide%2C%20I%20saw%20your%20website%20and%20I%20need%20assistance" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+<script>
+  // Portfolio data with image mapping using original images where applicable
+  const portfolioData = [
+    { title: "E-Commerce Platform", category: "web", img: "web development.png", desc: "Full-stack online store with payment integration" },
+    { title: "Hotel CCTV System", category: "security", img: "cctv installation.png", desc: "36-camera 4K surveillance with remote access" },
+    { title: "Corporate WiFi Mesh", category: "networking", img: "wifi installation.png", desc: "High-density WiFi 6 deployment for office campus" },
+    { title: "Hospital Management System", category: "web", img: "web design.png", desc: "Custom web app for patient records & appointments" },
+    { title: "Warehouse Security & Alarms", category: "security", img: "cctv installation.png", desc: "Smart intrusion detection + CCTV analytics" },
+    { title: "ISP Network Upgrade", category: "networking", img: "wifi installation.png", desc: "Complete routing & fiber infrastructure overhaul" },
+    { title: "Corporate Brand Website", category: "web", img: "web design.png", desc: "Modern responsive design with CMS integration" },
+    { title: "Office Automation & Security", category: "networking", img: "computer repair and maintenance.png", desc: "Unified threat management & VLAN setup" }
+  ];
+
+  function renderPortfolio(filter = "all") {
+    const grid = document.getElementById("portfolioGrid");
+    if (!grid) return;
+    const filtered = filter === "all" ? portfolioData : portfolioData.filter(item => item.category === filter);
+    grid.innerHTML = filtered.map(item => `
+      <div class="portfolio-item" data-category="${item.category}">
+        <div class="portfolio-img">
+          <img src="${item.img}" alt="${item.title}" onerror="this.src='https://placehold.co/400x200/2563eb/white?text=${encodeURIComponent(item.title)}'">
+        </div>
+        <div class="portfolio-info">
+          <span class="portfolio-cat">${item.category === 'web' ? 'Web & Design' : (item.category === 'security' ? 'Security Systems' : 'Networking')}</span>
+          <h3>${item.title}</h3>
+          <p style="color:#475569;">${item.desc}</p>
+        </div>
+      </div>
+    `).join("");
+    if(filtered.length === 0) {
+      grid.innerHTML = `<div style="grid-column:1/-1; text-align:center; padding:3rem;">More projects coming soon — contact us for case studies</div>`;
+    }
+  }
+
+  // Filter buttons
+  function initFilters() {
+    const btns = document.querySelectorAll(".filter-btn");
+    btns.forEach(btn => {
+      btn.addEventListener("click", () => {
+        btns.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        const filterVal = btn.getAttribute("data-filter");
+        renderPortfolio(filterVal);
+      });
+    });
+  }
+
+  // Scroll spy
+  function setupScrollSpy() {
+    const sections = ['home', 'services', 'portfolio', 'about', 'contact'];
+    const navLinks = document.querySelectorAll('.nav-links a');
+    window.addEventListener('scroll', () => {
+      let current = '';
+      for (let sec of sections) {
+        const sectionEl = document.getElementById(sec);
+        if(sectionEl) {
+          const rect = sectionEl.getBoundingClientRect();
+          if(rect.top <= 150 && rect.bottom >= 100) {
+            current = sec;
+            break;
+          }
+        }
+      }
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        const href = link.getAttribute('href')?.substring(1);
+        if(href === current) link.classList.add('active');
+      });
+    });
+  }
+
+  // Contact form handler
+  const contactForm = document.getElementById('contactForm');
+  if(contactForm) {
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('nameInput').value.trim();
+      const email = document.getElementById('emailInput').value.trim();
+      const message = document.getElementById('msgInput').value.trim();
+      if(!name || !email || !message) {
+        document.getElementById('formFeedback').innerHTML = '<span style="color:#b91c1c;">Please fill all fields.</span>';
+        return;
+      }
+      document.getElementById('formFeedback').innerHTML = '<span style="color:#15803d;">✅ Thanks! We will get back to you within 24 hours. Meanwhile, chat via WhatsApp for instant replies.</span>';
+      contactForm.reset();
+      setTimeout(() => {
+        document.getElementById('formFeedback').innerHTML = '';
+      }, 5000);
+    });
+  }
+
+  renderPortfolio("all");
+  initFilters();
+  setupScrollSpy();
+
+  // Fallback for any broken images in hero/about
+  const allImgs = document.querySelectorAll('img');
+  allImgs.forEach(img => {
+    img.addEventListener('error', function() {
+      if(!this.src.includes('placehold')) {
+        this.src = 'https://placehold.co/600x400/e2e8f0/1e293b?text=Foxwide';
+      }
+    });
+  });
+</script>
 </body>
 </html>
-
