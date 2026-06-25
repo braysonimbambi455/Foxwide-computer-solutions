@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>Foxwide Company Limited | IT Solutions & Portfolio</title>
+  <title>Foxwide Company Limited | IT Solutions & Projects</title>
   <!-- Google Fonts + Font Awesome for icons -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -234,77 +234,89 @@
       font-size: 0.95rem;
     }
 
-    /* portfolio section */
-    .portfolio {
+    /* projects section */
+    .projects {
       background-color: #fefefe;
       padding: 4rem 0;
     }
-    .portfolio-filter {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      flex-wrap: wrap;
-      margin-bottom: 2.5rem;
-    }
-    .filter-btn {
-      background: none;
-      border: 1px solid #cbd5e1;
-      padding: 0.5rem 1.3rem;
-      border-radius: 40px;
-      font-weight: 600;
-      font-size: 0.85rem;
-      cursor: pointer;
-      transition: all 0.2s;
-      color: #334155;
-    }
-    .filter-btn.active, .filter-btn:hover {
-      background: #2563eb;
-      border-color: #2563eb;
-      color: white;
-    }
-    .portfolio-grid {
+    
+    #projects-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
       gap: 2rem;
     }
-    .portfolio-item {
+    
+    .project-card {
       background: white;
       border-radius: 1.5rem;
       overflow: hidden;
       box-shadow: 0 10px 20px rgba(0,0,0,0.05);
       transition: transform 0.2s;
       border: 1px solid #eef2ff;
+      display: flex;
+      flex-direction: column;
     }
-    .portfolio-item:hover {
+    .project-card:hover {
       transform: translateY(-5px);
     }
-    .portfolio-img {
+    
+    .project-image {
       width: 100%;
       height: 200px;
       background-color: #eef2ff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
+      object-fit: contain;
+      padding: 8px;
+      background: #f8fafc;
     }
-    .portfolio-img img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    .portfolio-info {
+    
+    .project-content {
       padding: 1.2rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
     }
-    .portfolio-info h3 {
+    
+    .project-title {
       font-weight: 700;
-      margin-bottom: 0.4rem;
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      color: #0f172a;
     }
-    .portfolio-cat {
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
+    
+    .project-description {
+      color: #475569;
+      font-size: 0.9rem;
+      line-height: 1.6;
+      flex: 1;
+      margin-bottom: 1rem;
+    }
+    
+    .project-links {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      padding-top: 0.5rem;
+      border-top: 1px solid #f1f5f9;
+    }
+    
+    .project-links a {
       color: #2563eb;
+      text-decoration: none;
       font-weight: 600;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    
+    .project-links a:hover {
+      color: #1e40af;
+      text-decoration: underline;
+    }
+    
+    .project-links a i {
+      font-size: 0.85rem;
     }
 
     /* about section */
@@ -445,6 +457,9 @@
       .hero-content h1 { font-size: 2rem; }
       .hero-grid { flex-direction: column; }
       .contact-wrapper { flex-direction: column; }
+      #projects-grid {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
@@ -459,7 +474,7 @@
     <nav class="nav-links">
       <a href="#home" class="active">Home</a>
       <a href="#services">Services</a>
-      <a href="#portfolio">Portfolio</a>
+      <a href="#projects">Projects</a>
       <a href="#about">Company</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -523,17 +538,59 @@
     </div>
   </section>
 
-  <!-- Portfolio Section -->
-  <section id="portfolio" class="portfolio">
+  <!-- Projects Section -->
+  <section id="projects" class="projects">
     <div class="container">
-      <h2 class="section-title">Our Recent Portfolio</h2>
-      <div class="portfolio-filter">
-        <button class="filter-btn active" data-filter="all">All</button>
-        <button class="filter-btn" data-filter="web">Web & Design</button>
-        <button class="filter-btn" data-filter="security">CCTV & Security</button>
-        <button class="filter-btn" data-filter="networking">Networking</button>
+      <h2 class="section-title">Our Projects</h2>
+      <div id="projects-grid">
+        <!-- Project 1 -->
+        <article class="project-card">
+          <img class="project-image" src="leantex-home-pic.png" alt="Leantex company limited website homepage showing business management platform">
+          <div class="project-content">
+            <h3 class="project-title">Leantex company limited website</h3>
+            <p class="project-description">The Leantex Platform is a web-based system designed to help Leantex Company Limited manage service bookings, customers and business operations efficiently. It was developed using Django and Python for the backend, with HTML5, CSS3 and Bootstrap for the frontend and PostgreSQL as the database.</p>
+            <div class="project-links">
+              <a href="https://leantex-company-limited.onrender.com" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 2 -->
+        <article class="project-card">
+          <img class="project-image" src="devtoolkit .png" alt="Developer Toolkit Hub dashboard interface with developer tools and dark mode">
+          <div class="project-content">
+            <h3 class="project-title">Developer Toolkit Hub</h3>
+            <p class="project-description">An all-in-one dashboard organizing important developer tools in a single interface. Features include real-time search, category filtering, persistent dark mode and responsive design. Built with HTML5, CSS3 and vanilla JavaScript to help developers quickly access JSON formatters, API clients, AI tools, color palettes, Git references, converters, and speed tests without endless bookmarking.</p>
+            <div class="project-links">
+              <a href="https://developer-toolkit-hub.vercel.app/" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+            </div>
+          </div>
+        </article>
+        
+        <!-- Project 3 -->
+        <article class="project-card">
+          <img class="project-image" src="ssd lifespan analyzer.png" alt="SSD lifespan analyzer software interface showing drive health metrics">
+          <div class="project-content">
+            <h3 class="project-title">SSD lifespan analyzer</h3>
+            <p class="project-description">Developed a cross platform SSD lifespan analysis tool using Python and Windows batch scripting, enabling users to detect their actual SSD model, calculate remaining endurance based on real-time input and estimate lifespan in years with customizable usage patterns.</p>
+            <div class="project-links">
+              <a href="https://ssd-lifespan-analyzer.vercel.app/" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 4 -->
+        <article class="project-card">
+          <img class="project-image" src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Artificial intelligence and machine learning model development visualization">
+          <div class="project-content">
+            <h3 class="project-title">AI Model Development (Google Colab)</h3>
+            <p class="project-description">Developed and trained artificial intelligence models using Python in Google Colab, including data preprocessing, model training, evaluation, and visualization with TensorFlow, Scikit-learn and Pandas.</p>
+            <div class="project-links">
+              <a href="#" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+            </div>
+          </div>
+        </article>
       </div>
-      <div class="portfolio-grid" id="portfolioGrid"></div>
     </div>
   </section>
 
@@ -543,7 +600,7 @@
       <div class="about-text">
         <h2>About Foxwide Company Limited</h2>
         <p>Foxwide Company limited is dedicated to providing top-tier computer and IT services tailored to your needs. Our expert team delivers reliable repairs, custom-built computers, immersive web experiences, and trusted security systems, ensuring your technology empowers your success. We believe in quality, transparency and exceptional customer care.</p>
-        <p><strong>Our portfolio includes:</strong> 20+ successful IT deployments, 20+ websites launched, 20+ security systems installed and partnerships with leading hardware vendors. Every project is backed by our dedicated support.</p>
+        <p><strong>Our projects include:</strong> 20+ successful IT deployments, 20+ websites launched, 20+ security systems installed and partnerships with leading hardware vendors. Every project is backed by our dedicated support.</p>
         <div class="about-badge"><i class="fas fa-medal"></i> Certified Experts | 24/7 Support</div>
       </div>
       <div class="about-image">
@@ -562,7 +619,7 @@
         <div class="contact-detail"><i class="fas fa-envelope"></i> <span>foxwidecompanylimited@gmail.com</span></div>
         <div class="contact-detail"><i class="fas fa-clock"></i> <span>Mon-Sat: 8AM–6PM</span></div>
         <!-- WhatsApp button - simplified text -->
-        <a href="https://wa.me/254793814747?text=Hello%20Foxwide%2C%20I%20need%20assistance%20with%20IT%20services%2Fportfolio%20inquiry" target="_blank" class="whatsapp-btn">
+        <a href="https://wa.me/254793814747?text=Hello%20Foxwide%2C%20I%20need%20assistance%20with%20IT%20services%2Fprojects%20inquiry" target="_blank" class="whatsapp-btn">
           <i class="fab fa-whatsapp"></i> Chat on WhatsApp
         </a>
         <p style="font-size:0.8rem; margin-top:1rem;">Official WhatsApp Business — instant replies</p>
@@ -594,76 +651,6 @@
 </a>
 
 <script>
-  // Portfolio data with images
-  const portfolioData = [
-    { title: "E-Commerce Platform", category: "web", img: "web development.png", desc: "Full-stack online store with payment integration" },
-    { title: "Hotel CCTV System", category: "security", img: "cctv installation.png", desc: "36-camera 4K surveillance with remote access" },
-    { title: "Corporate WiFi Mesh", category: "networking", img: "wifi installation.png", desc: "High-density WiFi 6 deployment for office campus" },
-    { title: "Hospital Management System", category: "web", img: "web design.png", desc: "Custom web app for patient records & appointments" },
-    { title: "Warehouse Security & Alarms", category: "security", img: "cctv installation.png", desc: "Smart intrusion detection + CCTV analytics" },
-    { title: "ISP Network Upgrade", category: "networking", img: "wifi installation.png", desc: "Complete routing & fiber infrastructure overhaul" },
-    { title: "Corporate Brand Website", category: "web", img: "web design.png", desc: "Modern responsive design with CMS integration" },
-    { title: "Office Automation & Security", category: "networking", img: "computer repair and maintenance.png", desc: "Unified threat management & VLAN setup" }
-  ];
-
-  function renderPortfolio(filter = "all") {
-    const grid = document.getElementById("portfolioGrid");
-    if (!grid) return;
-    const filtered = filter === "all" ? portfolioData : portfolioData.filter(item => item.category === filter);
-    grid.innerHTML = filtered.map(item => `
-      <div class="portfolio-item" data-category="${item.category}">
-        <div class="portfolio-img">
-          <img src="${item.img}" alt="${item.title}" onerror="this.src='https://placehold.co/400x200/2563eb/white?text=${encodeURIComponent(item.title)}'">
-        </div>
-        <div class="portfolio-info">
-          <span class="portfolio-cat">${item.category === 'web' ? 'Web & Design' : (item.category === 'security' ? 'Security Systems' : 'Networking')}</span>
-          <h3>${item.title}</h3>
-          <p style="color:#475569;">${item.desc}</p>
-        </div>
-      </div>
-    `).join("");
-    if(filtered.length === 0) {
-      grid.innerHTML = `<div style="grid-column:1/-1; text-align:center; padding:3rem;">More projects coming soon — contact us for case studies</div>`;
-    }
-  }
-
-  // Filter buttons
-  function initFilters() {
-    const btns = document.querySelectorAll(".filter-btn");
-    btns.forEach(btn => {
-      btn.addEventListener("click", () => {
-        btns.forEach(b => b.classList.remove("active"));
-        btn.classList.add("active");
-        const filterVal = btn.getAttribute("data-filter");
-        renderPortfolio(filterVal);
-      });
-    });
-  }
-
-  // Scroll spy
-  function setupScrollSpy() {
-    const sections = ['home', 'services', 'portfolio', 'about', 'contact'];
-    const navLinks = document.querySelectorAll('.nav-links a');
-    window.addEventListener('scroll', () => {
-      let current = '';
-      for (let sec of sections) {
-        const sectionEl = document.getElementById(sec);
-        if(sectionEl) {
-          const rect = sectionEl.getBoundingClientRect();
-          if(rect.top <= 150 && rect.bottom >= 100) {
-            current = sec;
-            break;
-          }
-        }
-      }
-      navLinks.forEach(link => {
-        link.classList.remove('active');
-        const href = link.getAttribute('href')?.substring(1);
-        if(href === current) link.classList.add('active');
-      });
-    });
-  }
-
   // Contact form handler
   const contactForm = document.getElementById('contactForm');
   if(contactForm) {
@@ -684,11 +671,7 @@
     });
   }
 
-  renderPortfolio("all");
-  initFilters();
-  setupScrollSpy();
-
-  // Fallback for any broken images in hero/about
+  // Fallback for any broken images
   const allImgs = document.querySelectorAll('img');
   allImgs.forEach(img => {
     img.addEventListener('error', function() {
