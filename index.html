@@ -8,10 +8,16 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
+    /* RESET & BASE */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+    }
+
+    html, body {
+      width: 100%;
+      overflow-x: hidden; /* prevent horizontal scroll */
     }
 
     body {
@@ -28,7 +34,7 @@
       padding: 0 1.5rem;
     }
 
-    /* header & navigation */
+    /* HEADER & NAVIGATION – MOBILE FRIENDLY */
     .site-header {
       position: sticky;
       top: 0;
@@ -44,12 +50,14 @@
       justify-content: space-between;
       align-items: center;
       height: 72px;
+      flex-wrap: wrap;           /* allow wrapping on small screens */
     }
 
     .logo-area {
       display: flex;
       align-items: center;
       gap: 10px;
+      flex-shrink: 0;
     }
 
     .logo-img {
@@ -67,12 +75,16 @@
       background-clip: text;
       -webkit-background-clip: text;
       color: transparent;
+      white-space: nowrap;
     }
 
+    /* NAV – wraps and centers on small screens */
     .nav-links {
       display: flex;
-      gap: 2rem;
+      gap: 1.8rem;
       align-items: center;
+      flex-wrap: wrap;
+      justify-content: center;
     }
 
     .nav-links a {
@@ -81,26 +93,27 @@
       transition: color 0.2s;
       text-decoration: none;
       font-size: 0.95rem;
+      white-space: nowrap;
     }
 
     .nav-links a:hover, .nav-links a.active {
       color: #2563eb;
     }
 
-    /* floating whatsapp button */
+    /* FLOATING WHATSAPP */
     .whatsapp-float {
       position: fixed;
-      bottom: 28px;
-      right: 28px;
+      bottom: 20px;
+      right: 20px;
       background-color: #25D366;
       color: white;
-      width: 60px;
-      height: 60px;
+      width: 56px;
+      height: 56px;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 32px;
+      font-size: 30px;
       box-shadow: 0 6px 16px rgba(0,0,0,0.2);
       z-index: 1100;
       transition: transform 0.2s, background 0.2s;
@@ -114,41 +127,44 @@
       background-color: #20b859;
     }
 
-    /* hero */
+    /* HERO – stacks on mobile */
     .hero {
-      padding: 4rem 0 3rem;
+      padding: 2.5rem 0 2rem;
       background: linear-gradient(145deg, #fafcff 0%, #ffffff 100%);
     }
     .hero-grid {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
-      gap: 2.5rem;
+      gap: 2rem;
     }
     .hero-content {
-      flex: 1.2;
+      flex: 1 1 300px;
+      min-width: 0; /* prevent overflow */
     }
     .hero-content h1 {
       font-size: 3rem;
       font-weight: 800;
       line-height: 1.2;
       color: #0f172a;
-      margin-bottom: 1rem;
+      margin-bottom: 0.75rem;
+      word-break: break-word;
     }
     .hero-highlight {
       color: #2563eb;
       border-bottom: 3px solid #93c5fd;
     }
     .hero-content p {
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       color: #475569;
-      margin: 1.2rem 0 1.8rem;
+      margin: 1rem 0 1.5rem;
       max-width: 550px;
     }
     .hero-stats {
       display: flex;
       gap: 2rem;
       margin: 1.5rem 0;
+      flex-wrap: wrap;
     }
     .stat-item {
       text-align: left;
@@ -159,7 +175,7 @@
       color: #2563eb;
     }
     .hero-image {
-      flex: 0.9;
+      flex: 1 1 280px;
       border-radius: 2rem;
       overflow: hidden;
       box-shadow: 0 20px 35px -12px rgba(0,0,0,0.1);
@@ -175,36 +191,39 @@
       color: #fff;
       font-weight: 700;
       font-size: 1.125rem;
-      padding: 0.75rem 2.5rem;
+      padding: 0.75rem 2rem;
       border: none;
       border-radius: 0.75rem;
       cursor: pointer;
       box-shadow: 0 4px 8px rgb(37 99 235 / 0.3);
       transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+      display: inline-block; /* keeps it tight */
+      width: auto;
     }
     .btn-primary:hover {
       background-color: #1e40af;
       transform: translateY(-2px);
     }
 
-    /* services section */
+    /* SERVICES – grid adapts */
     .section-title {
       font-size: 2.2rem;
       font-weight: 700;
       text-align: center;
-      margin-bottom: 2.5rem;
+      margin-bottom: 2rem;
       color: #0f172a;
+      padding: 0 0.5rem;
     }
     .services-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      margin: 2rem 0;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.8rem;
+      margin: 1.5rem 0;
     }
     .service-card {
       background: #f8fafc;
       border-radius: 1.5rem;
-      padding: 1.5rem;
+      padding: 1.5rem 1.2rem;
       text-align: center;
       transition: all 0.25s ease;
       box-shadow: 0 4px 10px rgba(0,0,0,0.02);
@@ -217,7 +236,7 @@
     }
     .service-image {
       width: 100%;
-      height: 160px;
+      height: 150px;
       object-fit: cover;
       border-radius: 1rem;
       margin-bottom: 1rem;
@@ -225,7 +244,7 @@
     }
     .service-title {
       font-weight: 700;
-      font-size: 1.3rem;
+      font-size: 1.25rem;
       margin-bottom: 0.5rem;
       color: #0f172a;
     }
@@ -234,16 +253,16 @@
       font-size: 0.95rem;
     }
 
-    /* projects section */
+    /* PROJECTS – grid goes 1 column on phone */
     .projects {
       background-color: #fefefe;
-      padding: 4rem 0;
+      padding: 3rem 0;
     }
     
     #projects-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 2rem;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.8rem;
     }
     
     .project-card {
@@ -262,10 +281,10 @@
     
     .project-image {
       width: 100%;
-      height: 200px;
+      height: 180px;
       background-color: #eef2ff;
       object-fit: contain;
-      padding: 8px;
+      padding: 6px;
       background: #f8fafc;
     }
     
@@ -314,24 +333,21 @@
       color: #1e40af;
       text-decoration: underline;
     }
-    
-    .project-links a i {
-      font-size: 0.85rem;
-    }
 
-    /* about section */
+    /* ABOUT – stacks nicely */
     .about {
-      padding: 4rem 0;
+      padding: 3rem 0;
       background: #f1f5f9;
     }
     .about-inner {
       display: flex;
       flex-wrap: wrap;
-      gap: 3rem;
+      gap: 2rem;
       align-items: center;
     }
     .about-text {
-      flex: 1.2;
+      flex: 1 1 300px;
+      min-width: 0;
     }
     .about-text h2 {
       font-size: 2rem;
@@ -347,11 +363,13 @@
       padding: 0.5rem 1.2rem;
       font-weight: 500;
       display: inline-block;
-      margin-top: 1rem;
+      margin-top: 0.8rem;
       box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+      font-size: 0.9rem;
+      word-break: break-word;
     }
     .about-image {
-      flex: 0.9;
+      flex: 1 1 260px;
       border-radius: 1.5rem;
       overflow: hidden;
     }
@@ -361,9 +379,9 @@
       display: block;
     }
 
-    /* contact section */
+    /* CONTACT – stacks, info and form full width */
     .contact-section {
-      padding: 4rem 0;
+      padding: 3rem 0;
       background: #ffffff;
     }
     .contact-wrapper {
@@ -375,8 +393,8 @@
       box-shadow: 0 12px 28px rgba(0,0,0,0.05);
     }
     .contact-info {
-      flex: 1;
-      padding: 2rem 2rem;
+      flex: 1 1 280px;
+      padding: 2rem 1.8rem;
       background: #0f172a;
       color: white;
     }
@@ -386,21 +404,23 @@
       color: white;
     }
     .contact-detail {
-      margin: 1.8rem 0;
+      margin: 1.5rem 0;
       display: flex;
       align-items: center;
       gap: 1rem;
+      flex-wrap: wrap;
+      word-break: break-word;
     }
     .contact-detail i {
-      font-size: 1.5rem;
-      width: 2rem;
+      font-size: 1.3rem;
+      width: 1.8rem;
     }
     .whatsapp-btn {
       display: inline-flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
       background: #25D366;
-      padding: 0.75rem 1.6rem;
+      padding: 0.7rem 1.5rem;
       border-radius: 50px;
       color: white;
       font-weight: 700;
@@ -409,13 +429,14 @@
       text-decoration: none;
       border: none;
       cursor: pointer;
+      font-size: 0.95rem;
     }
     .whatsapp-btn:hover {
       background: #128C7E;
     }
     .contact-form-side {
-      flex: 1.2;
-      padding: 2rem;
+      flex: 1 1 300px;
+      padding: 2rem 1.8rem;
     }
     .input-group {
       margin-bottom: 1.2rem;
@@ -427,6 +448,7 @@
       border-radius: 1rem;
       font-family: inherit;
       transition: 0.2s;
+      font-size: 0.95rem;
     }
     .input-group input:focus, .input-group textarea:focus {
       outline: none;
@@ -442,23 +464,157 @@
       color: white;
       cursor: pointer;
       transition: 0.2s;
+      width: 100%; /* full width on mobile */
+      font-size: 1rem;
     }
     .btn-submit:hover {
       background: #1e40af;
     }
+
     footer {
       background: #0f172a;
       color: #94a3b8;
-      padding: 2rem 0;
+      padding: 1.8rem 0;
       text-align: center;
     }
+
+    /* ---------- MEDIA QUERIES FOR MOBILE ---------- */
     @media (max-width: 760px) {
-      .nav-links { gap: 1rem; }
-      .hero-content h1 { font-size: 2rem; }
-      .hero-grid { flex-direction: column; }
-      .contact-wrapper { flex-direction: column; }
+      .header-flex {
+        height: auto;
+        padding: 0.8rem 0;
+        flex-direction: column;
+        gap: 0.6rem;
+      }
+      .logo-area {
+        align-self: center;
+      }
+      .nav-links {
+        gap: 1rem 1.4rem;
+        justify-content: center;
+        width: 100%;
+      }
+      .nav-links a {
+        font-size: 0.9rem;
+      }
+      .hero {
+        padding: 1.8rem 0 1.5rem;
+      }
+      .hero-content h1 {
+        font-size: 2.2rem;
+        text-align: center;
+      }
+      .hero-content p {
+        font-size: 1rem;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .hero-stats {
+        justify-content: center;
+        gap: 1.5rem;
+      }
+      .stat-item {
+        text-align: center;
+      }
+      .btn-primary {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+        text-align: center;
+      }
+      .section-title {
+        font-size: 1.9rem;
+        margin-bottom: 1.5rem;
+      }
+      .services-grid {
+        grid-template-columns: 1fr;
+        gap: 1.4rem;
+      }
+      .service-image {
+        height: 140px;
+      }
       #projects-grid {
         grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+      .about-inner {
+        flex-direction: column;
+      }
+      .about-text h2 {
+        font-size: 1.7rem;
+        text-align: center;
+      }
+      .about-text p {
+        text-align: center;
+      }
+      .about-badge {
+        display: block;
+        text-align: center;
+        font-size: 0.8rem;
+        padding: 0.5rem 0.8rem;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 95%;
+      }
+      .about-image {
+        width: 100%;
+      }
+      .contact-wrapper {
+        flex-direction: column;
+        border-radius: 1.5rem;
+      }
+      .contact-info {
+        padding: 1.8rem 1.5rem;
+        text-align: center;
+      }
+      .contact-info h3 {
+        font-size: 1.6rem;
+        text-align: center;
+      }
+      .contact-detail {
+        justify-content: center;
+        margin: 1rem 0;
+      }
+      .whatsapp-btn {
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .contact-form-side {
+        padding: 1.8rem 1.5rem;
+      }
+      .contact-form-side h3 {
+        text-align: center;
+        font-size: 1.5rem;
+      }
+      .btn-submit {
+        font-size: 1rem;
+      }
+      .whatsapp-float {
+        width: 52px;
+        height: 52px;
+        font-size: 28px;
+        bottom: 16px;
+        right: 16px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        padding: 0 1rem;
+      }
+      .hero-content h1 {
+        font-size: 1.9rem;
+      }
+      .stat-number {
+        font-size: 1.5rem;
+      }
+      .project-links {
+        justify-content: center;
+      }
+      .project-links a {
+        font-size: 0.85rem;
       }
     }
   </style>
@@ -501,8 +657,8 @@
     </div>
   </section>
 
-  <!-- Services Section — extended with Deloway-inspired services -->
-  <section id="services" class="container" style="padding: 3rem 0 5rem;">
+  <!-- Services Section -->
+  <section id="services" class="container" style="padding: 2rem 0 3rem;">
     <h2 class="section-title">Our Core Services</h2>
     <div class="services-grid">
       <!-- Original Foxwide services -->
@@ -637,7 +793,7 @@
     </div>
   </section>
 
-  <!-- About Section (Company info) — updated with professional description and milestones -->
+  <!-- About Section -->
   <section id="about" class="about">
     <div class="container about-inner">
       <div class="about-text">
